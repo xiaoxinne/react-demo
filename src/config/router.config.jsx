@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App';
-import Login from '../page/Login';
+import Login from '../pages/Login';
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
   console.log('🚀 ~ isAuthenticated ~ token:', token);
