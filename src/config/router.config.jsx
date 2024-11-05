@@ -1,7 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App';
 import Login from '../pages/Login';
+import Chat from '../pages/Chat';
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
   console.log('🚀 ~ isAuthenticated ~ token:', token);
@@ -11,6 +12,12 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: isAuthenticated() ? <App /> : <Navigate to='/login'></Navigate>,
+    children: [
+      {
+        path: '/chat',
+        element: <Chat></Chat>,
+      },
+    ],
   },
   {
     path: '/login',
@@ -19,6 +26,10 @@ const router = createBrowserRouter([
 ]);
 export default class RouteApp extends Component {
   render() {
-    return <RouterProvider router={router}></RouterProvider>;
+    return (
+      <React.StrictMode>
+        <RouterProvider router={router}></RouterProvider>;
+      </React.StrictMode>
+    );
   }
 }

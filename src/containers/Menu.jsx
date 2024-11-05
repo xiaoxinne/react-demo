@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
@@ -17,15 +18,20 @@ const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, i
   };
 });
 const MenuApp = () => {
+  const navigate = useNavigate();
+  const onclick = () => {
+    navigate('/chat');
+  };
   return (
     <Menu
-      mode='inline'
+      onClick={onclick}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       style={{
         height: '100%',
         borderRight: 0,
       }}
+      mode='inline'
       items={items2}
     />
   );

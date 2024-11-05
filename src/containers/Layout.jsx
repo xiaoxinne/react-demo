@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import { Layout, theme } from 'antd';
 import MenuApp from './Menu';
 const { Content, Sider } = Layout;
@@ -34,7 +35,7 @@ const LayoutApp = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            Content
+            <Outlet></Outlet>
           </Content>
         </Layout>
       </Layout>

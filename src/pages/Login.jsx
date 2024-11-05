@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import request from '../util/request';
 import bg from '../assets/bg.jpeg';
 const Login = () => {
-  console.log("🚀 ~ Login ~ navigate:", useNavigate)
   const navigate = useNavigate();
   const onFinish = values => {
     request({
