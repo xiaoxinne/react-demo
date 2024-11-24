@@ -1,45 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import { Layout, theme } from 'antd';
+import { Container } from '@mui/material';
 import MenuApp from './Menu';
-const { Content, Sider } = Layout;
+// const { Content, Sider } = Layout;
 const LayoutApp = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  // const {
+  //   token: { colorBgContainer, borderRadiusLG },
+  // } = theme.useToken();
   return (
-    <Layout
-      style={{
-        height: '100%',
-      }}
-    >
-      <Layout>
-        <Sider
-          width={200}
-          style={{
-            background: colorBgContainer,
-          }}
-        >
-          <MenuApp />
-        </Sider>
-        <Layout
-          style={{
-            padding: '24px',
-          }}
-        >
-          <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            <Outlet></Outlet>
-          </Content>
-        </Layout>
-      </Layout>
-    </Layout>
+    <div className='app-root'>
+      <MenuApp></MenuApp>
+      <Container>
+        <Outlet></Outlet>
+      </Container>
+    </div>
   );
 };
 export default LayoutApp;
